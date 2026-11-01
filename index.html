@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f5f1"><title>Daylist | To-do App</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="#"><span class="brand-icon">d.</span><span>daylist<small>MAKE ROOM FOR WHAT MATTERS</small></span></a><span class="today" id="todayLabel"></span></header>
+<main class="shell">
+  <section class="hero"><p class="eyebrow">YOUR PERSONAL PLANNER</p><h1>A little progress<br><em>every day.</em></h1><p class="sub">Gather your tasks, set a time, and make today count.</p></section>
+  <section class="stats"><div><span id="totalCount">0</span><small>ALL TASKS</small></div><div><span id="openCount">0</span><small>TO DO</small></div><div><span id="doneCount">0</span><small>COMPLETED</small></div><div class="progress-wrap"><div class="progress-label"><small>DAILY PROGRESS</small><b id="progressText">0%</b></div><div class="progress"><span id="progressBar"></span></div></div></section>
+  <section class="panel">
+    <div class="panel-head"><div><p class="eyebrow">GET IT OUT OF YOUR HEAD</p><h2>Add a task</h2></div><span class="sparkle">✳</span></div>
+    <form id="taskForm" class="task-form">
+      <label class="sr-only" for="taskTitle">Task name</label><input id="taskTitle" maxlength="120" placeholder="What do you need to do?" required>
+      <div class="form-row"><label>Due date <input type="date" id="taskDate"></label><label>Time <input type="time" id="taskTime"></label><label>List <select id="taskList"><option value="Personal">Personal</option><option value="Work">Work</option><option value="Study">Study</option><option value="Other">Other</option></select></label><button class="add-btn" type="submit">+ Add task</button></div>
+    </form>
+  </section>
+  <section class="tasks-section">
+    <div class="list-heading"><div><p class="eyebrow">YOUR LIST</p><h2>Tasks <span id="headingCount">0</span></h2></div><div class="filters"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Active">To do</button><button class="filter" data-filter="Completed">Completed</button></div></div>
+    <div class="category-row"><button class="category active" data-category="All">All lists</button><button class="category" data-category="Personal">Personal</button><button class="category" data-category="Work">Work</button><button class="category" data-category="Study">Study</button><button class="category" data-category="Other">Other</button></div>
+    <div id="taskList" class="task-list"></div><div id="emptyState" class="empty"><span>✦</span><h3>Your list is clear.</h3><p>Add a task above and start with one small step.</p></div>
+  </section>
+  <footer>Designed for focus · Daylist To-do App</footer>
+</main>
+<div id="editModal" class="modal" aria-hidden="true"><form id="editForm" class="modal-card"><button type="button" id="closeModal" class="close" aria-label="Close">×</button><p class="eyebrow">MAKE A CHANGE</p><h2>Edit task</h2><input id="editTitle" maxlength="120" required><div class="form-row"><label>Due date<input id="editDate" type="date"></label><label>Time<input id="editTime" type="time"></label><label>List<select id="editList"><option>Personal</option><option>Work</option><option>Study</option><option>Other</option></select></label></div><button class="add-btn" type="submit">Save changes</button></form></div>
+<script src="script.js"></script>
+</body></html>
